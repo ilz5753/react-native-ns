@@ -20,3 +20,6 @@ const Ns = NativeModules.Ns
 export function multiply(a: number, b: number): Promise<number> {
   return Ns.multiply(a, b);
 }
+export function GetIpsFromMacAddress(macAddress: string): Promise<string[]> {
+  return Ns.GetIpsFromMacAddress(macAddress);
+}
