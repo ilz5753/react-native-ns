@@ -18,7 +18,7 @@ const Ns = NativeModules.Ns
       }
     );
 
-export function findInterfaces(): Promise<INetworkInterface> {
+export function findInterfaces(): Promise<INetworkInterface[]> {
   return Ns.findInterfaces();
 }
 export function GetIpsFromMacAddress(macAddress: string): Promise<string[]> {
