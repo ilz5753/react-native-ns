@@ -5,9 +5,13 @@
 using namespace std;
 namespace ns
 {
-  double multiply(double a, double b);
+  struct NetInterface
+  {
+    char *ip, *name;
+  };
   vector<string> GetIpsFromMacAddress(const char *mac);
-  vector<string> NearestDevicesIps(char *ip, int port);
+  // vector<string> NearestDevicesIps(char *ip, int port);
+  vector<NetInterface> findInterfaces();
 }
 
 #endif /* NS_H */
