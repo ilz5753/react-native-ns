@@ -7,6 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.WritableNativeMap;
@@ -30,7 +31,6 @@ public class NsModule extends ReactContextBaseJavaModule {
   }
 
   private static native String[] nativeGetIpsFromMacAddress(String mac);
-  private static native NetInterface[] nativeFindInterfaces();
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
@@ -47,22 +47,5 @@ public class NsModule extends ReactContextBaseJavaModule {
       } catch (Exception e) {
           promise.reject("error", e.getMessage());
       }
-  }
-  @ReactMethod
-  public void findInterfaces(Promise promise) {
-    try {
-      NetInterface[] ni = nativeFindInterfaces();
-      WritableArray niArray = new WritableNativeArray();
-          for (NetInterface n : ni) {
-            WritableNativeMap i = new WritableNativeMap();
-            i.pushString("ip", n.ip);
-            i.pushString("name", n.name);
-            niArray.pushMap(i);
-          }
-      promise.resolve(niArray);
-    }
-    catch(Exception e) {
-      promise.reject("NetInterface", e.getMessage());
-    }
   }
 }

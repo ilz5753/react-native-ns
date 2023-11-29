@@ -10,8 +10,6 @@ namespace ns
     char *ip, *name;
   };
   vector<string> GetIpsFromMacAddress(const char *mac);
-  // vector<string> NearestDevicesIps(char *ip, int port);
-  vector<NetInterface> findInterfaces();
 }
 
 #endif /* NS_H */
