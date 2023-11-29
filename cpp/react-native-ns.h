@@ -10,6 +10,7 @@ namespace ns
     char *ip, *name;
   };
   vector<string> GetIpsFromMacAddress(const char *mac);
+  vector<string> GetIPs(const char *baseIP, const int port);
 }
 
 #endif /* NS_H */

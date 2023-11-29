@@ -31,6 +31,7 @@ public class NsModule extends ReactContextBaseJavaModule {
   }
 
   private static native String[] nativeGetIpsFromMacAddress(String mac);
+  private static native String[] nativeGetIPs(String ip, int port);
   // Example method
   // See https://reactnative.dev/docs/native-modules-android
   @ReactMethod
@@ -41,6 +42,21 @@ public class NsModule extends ReactContextBaseJavaModule {
           WritableArray ipsArray = new WritableNativeArray();
           for (String ip : ips) {
               ipsArray.pushString(ip);
+          }
+
+          promise.resolve(ipsArray);
+      } catch (Exception e) {
+          promise.reject("error", e.getMessage());
+      }
+  }
+  @ReactMethod
+  public void GetIPs(String ip, int port, Promise promise) {
+      try {
+          String[] ips = nativeGetIPs(ip, port);
+
+          WritableArray ipsArray = new WritableNativeArray();
+          for (String i : ips) {
+              ipsArray.pushString(i);
           }
 
           promise.resolve(ipsArray);

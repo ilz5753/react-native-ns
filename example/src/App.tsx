@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { GetIpsFromMacAddress } from 'react-native-ns';
+import { GetIpsFromMacAddress, GetIPs } from 'react-native-ns';
 const f1 = {
   flex: 1,
 };
@@ -16,9 +16,10 @@ const f1 = {
 export default function App() {
   let [interfaces, setInterfaces] = useState<string[]>();
   let onPress = useCallback(async () => {
-    let i = await GetIpsFromMacAddress("");
+    let i = await GetIPs('127.0.0', 80);
     setInterfaces(i);
   }, []);
+  let clear = useCallback(() => setInterfaces(undefined), []);
   return (
     <KeyboardAvoidingView
       {...{
@@ -39,7 +40,14 @@ export default function App() {
         <ScrollView keyboardShouldPersistTaps="always">
           <View
             {...{
-              style: [{ alignItems: 'center', marginBottom: 30 }],
+              style: [
+                {
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  justifyContent: 'space-evenly',
+                  marginBottom: 30,
+                },
+              ],
             }}
           >
             <TouchableOpacity
@@ -61,20 +69,41 @@ export default function App() {
                 Find Interfaces
               </Text>
             </TouchableOpacity>
-          </View>
-          <View
-            {...{
-              style: [{ paddingHorizontal: 20 }],
-            }}
-          >
-            <Text
+            <TouchableOpacity
               {...{
-                style: [{ fontSize: 24, color: 'black' }],
+                onPress: clear,
+                activeOpacity: 0.75,
               }}
             >
-              {JSON.stringify(interfaces, null, 3)}
-            </Text>
+              <Text
+                {...{
+                  style: [
+                    {
+                      fontSize: 21,
+                      color: 'black',
+                    },
+                  ],
+                }}
+              >
+                clear
+              </Text>
+            </TouchableOpacity>
           </View>
+          {interfaces && (
+            <View
+              {...{
+                style: [{ paddingHorizontal: 20 }],
+              }}
+            >
+              <Text
+                {...{
+                  style: [{ fontSize: 24, color: 'black' }],
+                }}
+              >
+                {JSON.stringify(interfaces, null, 3)}
+              </Text>
+            </View>
+          )}
         </ScrollView>
       </SafeAreaView>
     </KeyboardAvoidingView>

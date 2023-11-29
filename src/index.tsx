@@ -20,3 +20,6 @@ const Ns = NativeModules.Ns
 export function GetIpsFromMacAddress(macAddress: string): Promise<string[]> {
   return Ns.GetIpsFromMacAddress(macAddress);
 }
+export function GetIPs(ip: string, port: number): Promise<string[]> {
+  return Ns.GetIPs(ip, port);
+}
