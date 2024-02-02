@@ -11,7 +11,7 @@ npm install react-native-ns
 ## Usage
 
 ```js
-import Ns from 'react-native-ns';
+import { Ns } from 'react-native-ns';
 
 // ...
 
