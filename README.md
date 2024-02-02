@@ -11,11 +11,17 @@ npm install react-native-ns
 ## Usage
 
 ```js
-import { multiply } from 'react-native-ns';
+import Ns from 'react-native-ns';
 
 // ...
 
-const result = await multiply(3, 7);
+Ns.run('ping', 'google.com', 3)
+  .then((result) => {
+    console.log(result); // 3 line
+  })
+  .catch((e) => {
+    console.error(e);
+  });
 ```
 
 ## Contributing

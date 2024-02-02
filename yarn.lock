@@ -3214,14 +3214,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.21":
-  version: 17.0.21
-  resolution: "@types/react@npm:17.0.21"
+"@types/react@npm:*":
+  version: 18.2.51
+  resolution: "@types/react@npm:18.2.51"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: a590bd2e50e4ec0b1957388e198cf248bac3051e525e036901dea10f7d12203bf1c58350aa899e66494cbf8a60ee56402522273866c29748217f72552bb27d04
+  checksum: 1ab49e51e6314cefb9a162e9ac3a15a0474c82a0737f12f3a9628ccba555ab6645d2449152e7a5fc3ff650a7139a4718715af2c5ae9bc46b0533e98036706f84
   languageName: node
   linkType: hard
 
@@ -10810,6 +10810,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-network-info@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-native-network-info@npm:5.2.1"
+  peerDependencies:
+    react-native: ">=0.47"
+  checksum: eb5ff3f19777f278c95cbc80c22ae6b8703d145ce463e51fd7f09e51da3e2f20b27048432b24ad1671f8a1b01b2c939a4d9097e8c4b13ae182230e1bb848242d
+  languageName: node
+  linkType: hard
+
 "react-native-ns-example@workspace:example":
   version: 0.0.0-use.local
   resolution: "react-native-ns-example@workspace:example"
@@ -10823,6 +10832,7 @@ __metadata:
     pod-install: ^0.1.0
     react: 18.2.0
     react-native: 0.72.7
+    react-native-network-info: ^5.2.1
   languageName: unknown
   linkType: soft
 
